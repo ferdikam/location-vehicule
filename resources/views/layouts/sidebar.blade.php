@@ -7,7 +7,6 @@
 
                 <li class="has_sub">
                     <a href="#" class="waves-effect"><i class="ti-home"></i> <span> Tableau de bord </span> </a>
-
                 </li>
 
                 <li class="has_sub">

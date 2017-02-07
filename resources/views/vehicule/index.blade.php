@@ -32,7 +32,9 @@
 					</button>
 					<h4 class="custom-modal-title">Enregistrer un véhicule</h4>
 					<div class="custom-modal-text text-left">
-						@include('vehicule.form', ['btnSubmit' => 'Enregistrer'])
+						<form method="POST" action="/vehicule">
+							@include('vehicule.form', ['btnSubmit' => 'Enregistrer'])
+						</form>
 					</div>
 				</div>
 
@@ -86,7 +88,9 @@
 						</button>
 						<h4 class="custom-modal-title">Enregistrer un véhicule</h4>
 						<div class="custom-modal-text text-left">
-							@include('vehicule.form', ['btnSubmit' => 'Enregistrer'])
+							<form method="POST" action="/vehicule">
+								@include('vehicule.form', ['btnSubmit' => 'Enregistrer'])
+							</form>
 						</div>
 					</div>
 				</div>
