@@ -30,3 +30,6 @@ Route::post('/category', 'CategoryController@store');
 
 Route::get('/vehicule', 'VehiculeController@index');
 Route::post('/vehicule', 'VehiculeController@store');
+
+Route::get('/operation', 'OperationController@index');
+Route::post('/operation', 'OperationController@store');

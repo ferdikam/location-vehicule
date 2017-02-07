@@ -1,80 +1,90 @@
 @extends('layouts.app')
 
-@section('content')
-    @if($categories->count() > 0)
+@section('page-title')
     <div class="row">
-        <div class="col-md-10">
-            <h2>Liste des catégories de véhicules</h2>
-        </div>
-        <div class="col-md-2">
-            <a class="btn btn-primary" data-toggle="modal" href="#modal-create">
-                <i class="fa fa-plus"></i> Ajouter
-            </a>
-            <div class="modal fade" id="modal-create">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                            <h4 class="modal-title">Ajout d'une catégorie</h4>
-                        </div>
-                        <form method="POST" action="/category">
-                            @include('category.form', ['submitBtn' => 'Enregistrer'])
-                        </form>
-                    </div><!-- /.modal-content -->
-                </div><!-- /.modal-dialog -->
-            </div><!-- /.modal -->
+        <div class="col-sm-12">
+            <h4 class="page-title">Marque</h4>
+            <ol class="breadcrumb">
+                <li>
+                    <a href="#">Gestion des vehicules</a>
+                </li>
+                <li class="active">
+                    Catégorie
+                </li>
+            </ol>
         </div>
     </div>
+@endsection
+
+@section('content')
+
     <hr>
     @include('layouts.errors')
+    @if($categories->count() > 0)
 
-        <div class="panel panel-default">
-            <div class="panel-body">
-                <table class="table table-hover">
-                    <thead>
-                    <tr>
-                        <th>Nom</th>
-                        <th>Actions</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    @foreach($categories as $categorie)
+        <div class="col-md-8 col-md-offset-2"><div class="card-box">
+                <a href="#custom-modal" class="pull-right btn btn-default btn-sm waves-effect waves-light" data-animation="fadein" data-plugin="custommodal"
+                   data-overlaySpeed="200" data-overlayColor="#36404a">Ajouter</a>
+
+                <div id="custom-modal" class="modal-demo">
+                    <button type="button" class="close" onclick="Custombox.close();">
+                        <span>&times;</span><span class="sr-only">Fermer</span>
+                    </button>
+                    <h4 class="custom-modal-title">Enregistrer une catégorie</h4>
+                    <div class="custom-modal-text text-left">
+                        @include('category.form', ['btnSubmit' => 'Enregistrer'])
+                    </div>
+                </div>
+
+
+
+                <h4 class="text-dark header-title m-t-0">Liste des catégories de véhicules</h4>
+                <hr>
+
+                <div class="table-responsive">
+                    <table class="table table-actions-bar m-b-0">
+                        <thead>
                         <tr>
-                            <td>{{ $categorie->name }}</td>
-                            <td>
-                                <a href="#" class="btn btn-info">
-                                    <i class="fa fa-pencil-square-o"></i>
-                                </a>
-                                <a href="#" class="btn btn-danger">
-                                    <i class="fa fa-trash-o"></i>
-                                </a>
-                            </td>
+                            <th>Nom</th>
+                            <th style="min-width: 80px;">Manage</th>
                         </tr>
-                    @endforeach
-                    </tbody>
-                </table>
-            </div>
-        </div>
-    @else
-        <div class="text-center text-muted">
-            <strong>Aucune catégorie de véhicule enregistrée</strong><br>
+                        </thead>
+                        <tbody>
+                        @foreach($categories as $category)
+                            <tr>
+                                <td>
+                                    {{ $category->name }}
+                                </td>
+                                <td>
+                                    <a href="#" class="table-action-btn"><i class="md md-edit"></i></a>
+                                    <a href="#" class="table-action-btn"><i class="md md-close"></i></a>
+                                </td>
+                            </tr>
+                        @endforeach
+                        </tbody>
+                    </table>
+                </div>
 
-            <a class="btn btn-primary" data-toggle="modal" href="#modal-create">
-                <i class="fa fa-plus"></i> Ajouter
-            </a>
-            <div class="modal fade" id="modal-create">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                            <h4 class="modal-title">Ajout d'une catégorie</h4>
+            </div>
+
+
+
+
+            @else
+                <div class="text-center text-muted">
+                    <strong>Aucune catégorie de véhicule enregistrée</strong><br>
+
+                    <a href="#custom-modal" class="pull-right btn btn-default btn-sm waves-effect waves-light" data-animation="fadein"
+                       data-plugin="custommodal" data-overlaySpeed="200" data-overlayColor="#36404a">Ajouter</a>
+                    <div id="custom-modal" class="modal-demo">
+                        <button type="button" class="close" onclick="Custombox.close();">
+                            <span>&times;</span><span class="sr-only">Fermer</span>
+                        </button>
+                        <h4 class="custom-modal-title">Enregistrer une catégorie</h4>
+                        <div class="custom-modal-text text-left">
+                            @include('modele.form', ['btnSubmit' => 'Enregistrer'])
                         </div>
-                        <form method="POST" action="/category">
-                            @include('category.form', ['submitBtn' => 'Enregistrer'])
-                        </form>
-                    </div><!-- /.modal-content -->
-                </div><!-- /.modal-dialog -->
-            </div><!-- /.modal -->
-        </div>
+                    </div>
+                </div>
     @endif
 @endsection
