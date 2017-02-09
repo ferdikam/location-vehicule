@@ -33,3 +33,10 @@ Route::post('/vehicule', 'VehiculeController@store');
 
 Route::get('/operation', 'OperationController@index');
 Route::post('/operation', 'OperationController@store');
+Route::post('/operation_validated', 'OperationController@validated');
+
+Route::get('/type_operation', 'TypeOperationController@index');
+Route::post('/type_operation', 'TypeOperationController@store');
+
+Route::get('/fournisseur', 'FournisseurController@index');
+Route::post('/fournisseur', 'FournisseurController@store');

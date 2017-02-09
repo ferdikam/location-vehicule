@@ -25,7 +25,7 @@ class OperationRequest extends FormRequest
     {
         return [
             'vehicule_id'   => 'required',
-            'name' => 'required',
+            'type_operation_id' => 'required',
             'date' => 'required',
             'montant' => 'required',
         ];
