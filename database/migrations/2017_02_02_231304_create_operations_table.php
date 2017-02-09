@@ -15,12 +15,17 @@ class CreateOperationsTable extends Migration
     {
         Schema::create('operations', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name');
+
+            $table->integer('vehicule_id')->unsigned();
+            $table->foreign('vehicule_id')->references('id')->on('vehicules')->onDelete('cascade');
+
+            //$table->string('name');
             $table->dateTime('date');
             $table->string('montant');
+            $table->boolean('validated')->default(0);
             $table->dateTime('date_next')->nullable();
-            $table->string('fournisseur')->nullable();
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

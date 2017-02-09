@@ -22,6 +22,8 @@
                     <a href="#" class="waves-effect"><i class="ti-direction-alt"></i> <span> Gestion des opérations </span></a>
                     <ul class="list-unstyled">
                         <li><a href="/operation">Opération</a></li>
+                        <li><a href="/type_operation">Type d'opération</a></li>
+                        <li><a href="/fournisseur">Fournisseur</a></li>
                     </ul>
                 </li>
 

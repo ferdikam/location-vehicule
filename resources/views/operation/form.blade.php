@@ -13,9 +13,11 @@
         </div>
         <div class="col-md-4">
             <div class="form-group">
-                <label for="name">Assurance</label>
-                <select class="form-control" id="name" name="name">
-                    <option value="assurance">Assurance</option>
+                <label for="type_operation_id">Type d'opération</label>
+                <select class="form-control" id="type_operation_id" name="type_operation_id">
+                    @foreach($typeoperations as $typeoperation)
+                        <option value="{{ $typeoperation->id }}">{{ $typeoperation->name }}</option>
+                    @endforeach
                 </select>
             </div>
         </div>
@@ -29,8 +31,13 @@
     <div class="row">
         <div class="col-md-4">
             <div class="form-group">
-                <label for="fournisseur">Fournisseur</label>
-                <input type="text" class="form-control" name="fournisseur" id="fournisseur">
+                <label for="fournisseur_id">Fournisseur</label>
+                <select class="form-control" id="fournisseur_id" name="fournisseur_id">
+                        <option value="0">-----------------------</option>
+                    @foreach($fournisseurs as $fournisseur)
+                        <option value="{{ $fournisseur->id }}">{{ $fournisseur->name }}</option>
+                    @endforeach
+                </select>
             </div>
         </div>
         <div class="col-md-4">
@@ -49,6 +56,6 @@
 
 </div>
 <div class="modal-footer">
-    <button type="button" class="btn btn-default" data-dismiss="modal">Annuler</button>
+    <button type="button" class="btn btn-default" data-dismiss="modal" onclick="Custombox.close();">Annuler</button>
     <button type="submit" class="btn btn-primary">Enregistrer</button>
 </div>
