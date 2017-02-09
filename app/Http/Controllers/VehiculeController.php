@@ -38,4 +38,9 @@ class VehiculeController extends Controller
 
         return redirect()->back();
     }
+
+    public function update(VehiculeRequest $request, $id)
+    {
+        dd($request->all());
+    }
 }

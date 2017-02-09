@@ -24,8 +24,8 @@ class CreateOperationsTable extends Migration
             $table->string('montant');
             $table->boolean('validated')->default(0);
             $table->dateTime('date_next')->nullable();
-            $table->softDeletes();
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

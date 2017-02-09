@@ -34,7 +34,7 @@
                     <h4 class="custom-modal-title">Enregistrer une catégorie</h4>
                     <div class="custom-modal-text text-left">
                         <form method="post" action="/category">
-                            @include('category.form', ['btnSubmit' => 'Enregistrer'])
+                            @include('category.form', ['btnSubmit' => 'Enregistrer', 'category' => new \App\Category()])
                         </form>
                     </div>
                 </div>
@@ -82,7 +82,7 @@
                 <h4 class="custom-modal-title">Enregistrer une catégorie</h4>
                 <div class="custom-modal-text text-left">
                     <form method="post" action="/category">
-                        @include('category.form', ['btnSubmit' => 'Enregistrer'])
+                        @include('category.form', ['btnSubmit' => 'Enregistrer', 'category' => new \App\Category()])
                     </form>
                 </div>
             </div>

@@ -4,9 +4,12 @@ namespace App;
 
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Vehicule extends Model
 {
+    use SoftDeletes;
+
     protected $fillable = [
         'modele_id', 'category_id', 'immatriculation', 'kilometrage', 'etat', 'puissance', 'poids_vide', 'places',
         'date_arrivee', 'transmission', 'carburant'

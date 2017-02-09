@@ -32,6 +32,7 @@ class CreateVehiculesTable extends Migration
             $table->string('transmission');
             $table->string('carburant');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
