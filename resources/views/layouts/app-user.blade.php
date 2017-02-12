@@ -34,54 +34,16 @@
 
 </head>
 
-<body class="fixed-left">
+<body>
+<div class="account-pages"></div>
+<div class="clearfix"></div>
+<div class="wrapper-page">
+    @include('layouts.errors')
 
-<!-- Begin page -->
-<div id="wrapper">
-
-    <!-- Top Bar Start -->
-    @include('layouts.nav')
-    <!-- Top Bar End -->
-
-
-    <!-- ========== Left Sidebar Start ========== -->
-
-    @include('layouts.sidebar')
-    <!-- Left Sidebar End -->
-
-    <!-- ============================================================== -->
-    <!-- Start right Content here -->
-    <!-- ============================================================== -->
-    <div class="content-page">
-        <!-- Start content -->
-        <div class="content">
-            <div class="container">
-
-                <!-- Page-Title -->
-                @yield('page-title')
-
-                @yield('content')
-
-
-            </div> <!-- container -->
-
-        </div> <!-- content -->
-
-        <footer class="footer">
-            {{ date('Y') }} © La Marquise Location.
-        </footer>
-
-    </div>
-    <!-- ============================================================== -->
-    <!-- End Right content here -->
-    <!-- ============================================================== -->
-
-
-
-
+    @yield('content')
 
 </div>
-<!-- END wrapper -->
+
 
 <script>
     var resizefunc = [];
@@ -103,11 +65,6 @@
 <script src="/assets/js/jquery.core.js"></script>
 <script src="/assets/js/jquery.app.js"></script>
 
-<!-- Modal-Effect -->
-<script src="/assets/plugins/custombox/dist/custombox.min.js"></script>
-<script src="/assets/plugins/custombox/dist/legacy.min.js"></script>
-
 @include('flashy::message')
-
 </body>
 </html>

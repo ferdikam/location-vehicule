@@ -17,7 +17,7 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index');
+Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/marque', 'MarqueController@index');
 Route::post('/marque', 'MarqueController@store');
@@ -41,3 +41,13 @@ Route::post('/type_operation', 'TypeOperationController@store');
 
 Route::get('/fournisseur', 'FournisseurController@index');
 Route::post('/fournisseur', 'FournisseurController@store');
+
+Route::get('/utilisateur', 'UserController@index');
+Route::get('/utilisateur/confirm/{id}/{token}', 'UserController@confirm');
+Route::get('/utilisateur/envoie-lien', 'UserController@send');
+Route::post('/utilisateur/envoie-lien', 'UserController@sendLink');
+Route::post('/registration', 'UserController@store');
+
+Route::get('/login', 'SessionController@create')->name('login');
+Route::get('/logout', 'SessionController@destroy');
+Route::post('/login', 'SessionController@store');

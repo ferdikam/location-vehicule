@@ -26,4 +26,18 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public function token()
+    {
+        return $this->hasOne(UsersLoginToken::class);
+    }
+
+    public function storeToken()
+    {
+        $this->token()->delete();
+        $this->token()->create([
+            'token' => bin2hex(random_bytes(8)),
+        ]);
+    }
+
 }

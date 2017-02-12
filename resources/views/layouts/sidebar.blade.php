@@ -27,6 +27,13 @@
                     </ul>
                 </li>
 
+                <li class="has_sub">
+                    <a href="#" class="waves-effect"><i class="ti-user"></i> <span> Gestion des utilisateurs </span></a>
+                    <ul class="list-unstyled">
+                        <li><a href="/utilisateur">Utilisateur</a></li>
+                    </ul>
+                </li>
+
             </ul>
             <div class="clearfix"></div>
         </div>

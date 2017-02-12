@@ -138,7 +138,15 @@
                             <img src="assets/images/users/default-avatar.png" alt="user-img" class="img-circle"> </a>
                         <ul class="dropdown-menu">
                             <li><a href="javascript:void(0)"><i class="ti-user m-r-5"></i> Profile</a></li>
-                            <li><a href="javascript:void(0)"><i class="ti-power-off m-r-5"></i> Déconnexion</a></li>
+                            <li>
+                                <a href="/logout" onclick="event.preventDefault();
+                                                        document.getElementById('logout-form').submit();">
+                                    <i class="ti-power-off m-r-5"></i> Déconnexion
+                                </a>
+                                <form id="logout-form" action="/logout" method="POST">
+                                    {{ csrf_field() }}
+                                </form>
+                            </li>
                         </ul>
                     </li>
                     @endif
