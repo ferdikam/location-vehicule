@@ -10,6 +10,13 @@
                 </li>
 
                 <li class="has_sub">
+                    <a href="#" class="waves-effect"><i class="ti-car"></i> <span> Gestion des locations </span> </a>
+                    <ul class="list-unstyled">
+                        <li><a href="/client">Clients</a></li>
+                        <li><a href="/location">Locations</a></li>
+                    </ul>
+                </li>
+                <li class="has_sub">
                     <a href="#" class="waves-effect"><i class="ti-car"></i> <span> Gestion des véhicules </span> </a>
                     <ul class="list-unstyled">
                         <li><a href="/vehicule">Véhicules</a></li>

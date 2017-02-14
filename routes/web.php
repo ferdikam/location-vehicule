@@ -51,3 +51,5 @@ Route::post('/registration', 'UserController@store');
 Route::get('/login', 'SessionController@create')->name('login');
 Route::get('/logout', 'SessionController@destroy');
 Route::post('/login', 'SessionController@store');
+
+Route::get('/client', 'ClientController@index');
