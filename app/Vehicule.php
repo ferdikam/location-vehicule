@@ -32,6 +32,11 @@ class Vehicule extends Model
         return $this->hasMany(Operation::class);
     }
 
+    public function locations()
+    {
+        return $this->hasMany(Location::class);
+    }
+
     public function setDateArriveeAttribute($date)
     {
         $this->attributes['date_arrivee']= Carbon::parse($date);

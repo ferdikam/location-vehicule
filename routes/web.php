@@ -53,3 +53,8 @@ Route::get('/logout', 'SessionController@destroy');
 Route::post('/login', 'SessionController@store');
 
 Route::get('/client', 'ClientController@index');
+Route::post('/client', 'ClientController@store');
+
+Route::get('/location', 'LocationController@index');
+Route::get('/location/statut/{id}', 'LocationController@statut');
+Route::post('/location', 'LocationController@store');
