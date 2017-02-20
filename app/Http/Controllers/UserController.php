@@ -2,11 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\ProfileForm;
 use App\Http\Requests\RegistrationForm;
 use App\Notifications\UserRegistered;
+use App\Profile;
 use App\User;
 use App\UsersLoginToken;
 use Flashy;
+use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
@@ -83,5 +86,23 @@ class UserController extends Controller
 
         return redirect()->back();
 
+    }
+
+    public function profile()
+    {
+        if (Auth::guest()){
+            return redirect('/login');
+        }
+        $user = Auth()->user();
+        $profile = Profile::where('user_id', $user->id)->first();
+
+        return view('user.profile', compact('user', 'profile'));
+    }
+
+    public function setProfile(ProfileForm $form)
+    {
+        $form->persist();
+
+        return redirect()->back();
     }
 }

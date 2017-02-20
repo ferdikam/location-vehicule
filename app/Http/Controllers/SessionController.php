@@ -42,6 +42,11 @@ class SessionController extends Controller
         return redirect()->login();
     }
 
+    public function recovery()
+    {
+        return view('session.recovery');
+    }
+
     protected function guard()
     {
         return Auth::guard();

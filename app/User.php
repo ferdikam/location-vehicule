@@ -35,6 +35,11 @@ class User extends Authenticatable
         return $this->belongsToMany(Location::class, 'location_user');
     }
 
+    public function profile()
+    {
+        return $this->hasOne(Profile::class);
+    }
+
     public function token()
     {
         return $this->hasOne(UsersLoginToken::class);

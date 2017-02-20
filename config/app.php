@@ -178,6 +178,7 @@ return [
         App\Providers\RouteServiceProvider::class,
         MercurySeries\Flashy\FlashyServiceProvider::class,
         Zizaco\Entrust\EntrustServiceProvider::class,
+        Spatie\Activitylog\ActivitylogServiceProvider::class,
 
     ],
 

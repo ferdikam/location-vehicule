@@ -33,7 +33,7 @@
 					<h4 class="custom-modal-title">Enregistrer un véhicule</h4>
 					<div class="custom-modal-text text-left">
 						<form method="POST" action="/vehicule">
-							@include('vehicule.form', ['btnSubmit' => 'Modifier', 'vehicule' => new \App\Vehicule()])
+							@include('vehicule.form', ['btnSubmit' => 'Enregistrer', 'vehicule' => new \App\Vehicule()])
 						</form>
 					</div>
 				</div>
@@ -101,7 +101,7 @@
 				<h4 class="custom-modal-title">Enregistrer un véhicule</h4>
 				<div class="custom-modal-text text-left">
 					<form method="POST" action="/vehicule">
-						@include('vehicule.form', ['btnSubmit' => 'Modifier', 'vehicule' => new \App\Vehicule()])
+						@include('vehicule.form', ['btnSubmit' => 'Enregistrer', 'vehicule' => new \App\Vehicule()])
 					</form>
 				</div>
 			</div>

@@ -2,6 +2,7 @@
 
 namespace App;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 
 class Location extends Model
@@ -25,5 +26,10 @@ class Location extends Model
     public function users()
     {
         return $this->belongsToMany(User::class, 'location_user');
+    }
+
+    public function verifDate($date_start, $date_end)
+    {
+        return Carbon::now()->between($date_start, $date_end);
     }
 }

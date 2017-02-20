@@ -3,7 +3,7 @@
     <!-- LOGO -->
     <div class="topbar-left">
         <div class="text-center">
-            <a href="index.html" class="logo"><i class="icon-magnet icon-c-logo"></i><span>Ub<i class="md md-album"></i>ld</span></a>
+            <a href="/" class="logo"><i class="icon-magnet icon-c-logo"></i><span>L<i class="md md-album"></i>cation</span></a>
         </div>
     </div>
 
@@ -18,17 +18,17 @@
                     <span class="clearfix"></span>
                 </div>
 
-                <form role="search" class="navbar-left app-search pull-left hidden-xs">
+                <!--<form role="search" class="navbar-left app-search pull-left hidden-xs">
                     <input type="text" placeholder="Search..." class="form-control">
                     <a href=""><i class="fa fa-search"></i></a>
-                </form>
+                </form>-->
 
 
                 <ul class="nav navbar-nav navbar-right pull-right">
                     <li class="dropdown hidden-xs">
-                        <a href="#" data-target="#" class="dropdown-toggle waves-effect waves-light" data-toggle="dropdown" aria-expanded="true">
+                        <!--<a href="#" data-target="#" class="dropdown-toggle waves-effect waves-light" data-toggle="dropdown" aria-expanded="true">
                             <i class="icon-bell"></i> <span class="badge badge-xs badge-danger">3</span>
-                        </a>
+                        </a>-->
                         <ul class="dropdown-menu dropdown-menu-lg">
                             <li class="notifi-title"><span class="label label-default pull-right">New 3</span>Notification</li>
                             <li class="list-group nicescroll notification-list">
@@ -135,9 +135,9 @@
                     @else
                     <li class="dropdown">
                         <a href="" class="dropdown-toggle profile" data-toggle="dropdown" aria-expanded="true">
-                            <img src="assets/images/users/default-avatar.png" alt="user-img" class="img-circle"> </a>
+                            <img src="/assets/images/users/default-avatar.png" alt="user-img" class="img-circle"> </a>
                         <ul class="dropdown-menu">
-                            <li><a href="javascript:void(0)"><i class="ti-user m-r-5"></i> Profile</a></li>
+                            <li><a href="/profile"><i class="ti-user m-r-5"></i> Profil</a></li>
                             <li>
                                 <a href="/logout" onclick="event.preventDefault();
                                                         document.getElementById('logout-form').submit();">

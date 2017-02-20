@@ -3,10 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Category;
-use App\Http\Requests\VehiculeRequest;
+use App\Http\Requests\VehiculeForm;
 use App\Modele;
 use App\Vehicule;
 use Illuminate\Http\Request;
+use MercurySeries\Flashy\Flashy;
 
 class VehiculeController extends Controller
 {
@@ -20,27 +21,21 @@ class VehiculeController extends Controller
         return view('vehicule.index', compact('vehicules', 'modeles', 'categories'));
     }
 
-    public function store(VehiculeRequest $request)
+    public function store(VehiculeForm $form)
     {
-        Vehicule::create([
-            "modele_id" => $request->modele_id,
-          "category_id" => $request->category_id,
-          "immatriculation" => $request->immatriculation,
-          "kilometrage" => $request->kilometrage,
-          "puissance" => $request->puissance,
-          "etat" => $request->etat,
-          "poids_vide" => $request->poids_vide,
-          "places" => $request->places,
-          "transmission" => $request->transmission,
-          "carburant" => $request->carburant,
-          "date_arrivee" => $request->date_arrivee,
-        ]);
+        $form->persist();
+
+        Flashy::success('Véhicule enregistré avec succès');
 
         return redirect()->back();
     }
 
-    public function update(VehiculeRequest $request, $id)
+    public function update(VehiculeForm $form, $id)
     {
-        dd($request->all());
+        $form->persist($id);
+
+        Flashy::success('Véhicule modifié avec succès');
+
+        return redirect()->back();
     }
 }

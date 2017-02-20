@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests;
 
+use App\Invoice;
 use App\Location;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Support\Facades\Auth;

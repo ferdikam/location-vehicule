@@ -11,9 +11,7 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'HomeController@index');
 
 Auth::routes();
 
@@ -47,9 +45,12 @@ Route::get('/utilisateur/confirm/{id}/{token}', 'UserController@confirm');
 Route::get('/utilisateur/envoie-lien', 'UserController@send');
 Route::post('/utilisateur/envoie-lien', 'UserController@sendLink');
 Route::post('/registration', 'UserController@store');
+Route::get('/profile', 'UserController@profile');
+Route::post('/profile', 'UserController@setProfile');
 
 Route::get('/login', 'SessionController@create')->name('login');
 Route::get('/logout', 'SessionController@destroy');
+Route::get('/forgot-password', 'SessionController@recovery');
 Route::post('/login', 'SessionController@store');
 
 Route::get('/client', 'ClientController@index');
@@ -58,3 +59,5 @@ Route::post('/client', 'ClientController@store');
 Route::get('/location', 'LocationController@index');
 Route::get('/location/statut/{id}', 'LocationController@statut');
 Route::post('/location', 'LocationController@store');
+
+Route::get('/invoice', 'InvoiceController@index');
