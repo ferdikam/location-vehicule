@@ -38,4 +38,15 @@ class VehiculeController extends Controller
 
         return redirect()->back();
     }
+
+    public function destroy($id)
+    {
+        $vehicule = Vehicule::findOrFail($id);
+
+        $vehicule->delete();
+
+        Flashy::success('Véhicule supprimé avec succès');
+
+        return redirect()->back();
+    }
 }

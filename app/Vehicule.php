@@ -15,7 +15,7 @@ class Vehicule extends Model
         'date_arrivee', 'transmission', 'carburant'
     ];
 
-    protected $dates = ['date°arrivee'];
+    protected $dates = ['date°arrivee','deleted_at'];
 
     public function modele()
     {

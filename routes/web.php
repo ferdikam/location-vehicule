@@ -29,6 +29,7 @@ Route::post('/category', 'CategoryController@store');
 Route::get('/vehicule', 'VehiculeController@index');
 Route::post('/vehicule', 'VehiculeController@store');
 Route::patch('/edit/{id}/vehicule', 'VehiculeController@update');
+Route::delete('/vehicule/{id}/delete', 'VehiculeController@destroy');
 
 Route::get('/operation', 'OperationController@index');
 Route::post('/operation', 'OperationController@store');
