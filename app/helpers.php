@@ -11,3 +11,9 @@ function status($title)
             break;
     }
 }
+
+function format_date($value)
+{
+    // return $value->format('d M Y');
+    return $value->formatLocalized('%A %d %B %Y');;
+}

@@ -24,7 +24,7 @@
         <div class="col-md-4">
             <div class="form-group">
                 <label for="montant">Montant</label>
-                <input type="text" class="form-control" name="montant" id="montant">
+                <input type="text" class="form-control" name="montant" id="montant" value="{{ old('montant') or $operation->montant }}">
             </div>
         </div>
     </div>
@@ -43,13 +43,13 @@
         <div class="col-md-4">
             <div class="form-group">
                 <label for="date">Date de début</label>
-                <input type="date" class="form-control" name="date" id="date">
+                <input type="date" class="form-control" name="date" id="date" value="{{ old('date') or $operation->date }}">
             </div>
         </div>
         <div class="col-md-4">
             <div class="form-group">
                 <label for="date_next">Date de fin</label>
-                <input type="date" class="form-control" name="date_next" id="date_next">
+                <input type="date" class="form-control" name="date_next" id="date_next" value="{{ old('date_next') or $operation->date_next }}">
             </div>
         </div>
     </div>
@@ -57,5 +57,5 @@
 </div>
 <div class="modal-footer">
     <button type="button" class="btn btn-default" data-dismiss="modal" onclick="Custombox.close();">Annuler</button>
-    <button type="submit" class="btn btn-primary">Enregistrer</button>
+    <button type="submit" class="btn btn-primary">{{ $btnSubmit }}</button>
 </div>

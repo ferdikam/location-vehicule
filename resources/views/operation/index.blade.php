@@ -46,12 +46,16 @@
                         @foreach($operationsValidated as $operationValidated)
                             <tr>
                                 <td>{{ $operationValidated->typeOperation->name }}</td>
-                                <td>{{ $operationValidated->fournisseur->name }}</td>
+                                <td>
+                                    @if(!is_null($operationValidated->fournisseur))
+                                        {{ $operationValidated->fournisseur->name }}
+                                    @endif
+                                </td>
                                 <td>{{ $operationValidated->vehicule->modele->marque->name }}</td>
                                 <td>{{ $operationValidated->vehicule->modele->name }}</td>
                                 <td>{{ $operationValidated->vehicule->immatriculation }} </td>
-                                <td>{{ $operationValidated->date }}</td>
-                                <td>{{ $operationValidated->date_next }}</td>
+                                <td>{{ $operationValidated->date->toRssString() }}</td>
+                                <td>{{ $operationValidated->date_next->toRssString() }}</td>
                                 <td>
                                     <a href="#" class="table-action-btn"><i class="md md-edit"></i></a>
                                     <a href="#" class="table-action-btn"><i class="md md-close"></i></a>
@@ -81,7 +85,7 @@
                     <h4 class="custom-modal-title">Enregistrer une opération</h4>
                     <div class="custom-modal-text text-left">
                         <form method="POST" action="/operation">
-                            @include('operation.form', ['btnSubmit' => 'Enregistrer'])
+                            @include('operation.form', ['btnSubmit' => 'Enregistrer','operation' => new \App\Operation()])
                         </form>
                     </div>
                 </div>
@@ -97,9 +101,8 @@
                         <tr>
                             <th>Type d'opération</th>
                             <th>Fournisseur</th>
-                            <th>Marque</th>
-                            <th>modele</th>
-                            <th>Immatriculation</th>
+                            <th>Vehicule</th>
+                            <th>Montant</th>
                             <th>Date de début</th>
                             <th>Date de fin</th>
                             <th style="min-width: 80px;">Manage</th>
@@ -109,12 +112,15 @@
                         @foreach($operations as $operation)
                             <tr>
                                 <td>{{ $operation->typeOperation->name }}</td>
-                                <td>{{ $operation->fournisseur->name }}</td>
-                                <td>{{ $operation->vehicule->modele->marque->name }}</td>
-                                <td>{{ $operation->vehicule->modele->name }}</td>
-                                <td>{{ $operation->vehicule->immatriculation }} </td>
-                                <td>{{ $operation->date }}</td>
-                                <td>{{ $operation->date_next }}</td>
+                                <td>
+                                    @if(!is_null($operation->fournisseur))
+                                        {{ $operation->fournisseur->name }}
+                                    @endif
+                                </td>
+                                <td>{{ $operation->vehicule->modele->marque->name }} {{ $operation->vehicule->modele->name }} - {{ $operation->vehicule->immatriculation }}</td>
+                                <td>{{ $operation->montant }} </td>
+                                <td>{{ format_date($operation->date) }}</td>
+                                <td>{{ format_date($operation->date_next) }}</td>
                                 <td>
                                     <a href="#custom-validated-modal-{{ $operation->id }}" class="table-action-btn" data-animation="fadein"
                                        data-plugin="custommodal" data-overlaySpeed="200" data-overlayColor="#36404a">
@@ -131,7 +137,22 @@
                                             </form>
                                         </div>
                                     </div>
-                                    <a href="#" class="table-action-btn"><i class="md md-edit"></i></a>
+                                    <a href="#custom-edit-modal-{{ $operation->id }}" class="table-action-btn" data-animation="fadein"
+                                       data-plugin="custommodal" data-overlaySpeed="200" data-overlayColor="#36404a">
+                                        <i class="md md-edit"></i>
+                                    </a>
+                                    <div id="custom-edit-modal-{{ $operation->id }}" class="modal-demo">
+                                        <button type="button" class="close" onclick="Custombox.close();">
+                                            <span>&times;</span><span class="sr-only">Fermer</span>
+                                        </button>
+                                        <h4 class="custom-modal-title">Validation de l'opération</h4>
+                                        <div class="custom-modal-text">
+                                            <form method="POST" action="/operation_validated">
+                                                {{ method_field('PATCH') }}
+                                                @include('operation.form', ['btnSubmit' => 'Modifier', 'operation' => new \App\Operation()] )
+                                            </form>
+                                        </div>
+                                    </div>
                                     <a href="#" class="table-action-btn"><i class="md md-close"></i></a>
                                 </td>
                             </tr>
@@ -155,7 +176,7 @@
                 <h4 class="custom-modal-title">Enregistrer une opération</h4>
                 <div class="custom-modal-text text-left">
                     <form method="POST" action="/operation">
-                        @include('operation.form', ['btnSubmit' => 'Enregistrer'])
+                        @include('operation.form', ['btnSubmit' => 'Enregistrer','operation' => new \App\Operation()])
                     </form>
                 </div>
             </div>
