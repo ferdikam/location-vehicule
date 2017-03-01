@@ -16,7 +16,8 @@ class LocationForm extends FormRequest
      */
     public function authorize()
     {
-        return true;
+        if(!Auth::guest())
+            return true;
     }
 
     /**
@@ -49,7 +50,7 @@ class LocationForm extends FormRequest
         $location->vehicule_id = $this->vehicule_id;
         $location->date_start = $this->date_start;
         $location->date_end = $this->date_end;
-        $location->token = str_random(8);
+        $location->token = str_random(8);        
 
         $location->save();
 

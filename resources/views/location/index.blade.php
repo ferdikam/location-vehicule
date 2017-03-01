@@ -48,6 +48,8 @@
                         <tr>
                             <th>Vehicule</th>
                             <th>Client</th>
+                            <th>Date de début</th>
+                            <th>Date de fin</th>
                             <th style="min-width: 80px;">Manage</th>
                         </tr>
                         </thead>
@@ -58,9 +60,13 @@
                                     {{ $location->vehicule->modele->marque->name }} {{ $location->vehicule->modele->name }} - {{ $location->vehicule->immatriculation }}
                                 </td>
                                 <td>{{ $location->client->name }}</td>
+                                <td>{{ format_date($location->date_start) }}</td>
+                                <td>{{ format_date($location->date_end) }}</td>
                                 <td>
-                                    <a href="#" class="table-action-btn"><i class="md md-edit"></i></a>
-                                    <a href="#" class="table-action-btn"><i class="md md-close"></i></a>
+                                    @if($location->status != 'paid')
+                                        <a href="#" class="table-action-btn"><i class="md md-edit"></i></a>
+                                        <a href="#" class="table-action-btn"><i class="md md-close"></i></a>
+                                    @endif
                                     @if($location->status == 'pending')
                                     <a href="#custom-statut-modal" class="btn btn-inverse btn-sm waves-effect waves-light" data-animation="fadein" data-plugin="custommodal"
                                        data-overlaySpeed="200" data-overlayColor="#36404a">
