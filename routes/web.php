@@ -15,9 +15,13 @@ Route::get('/', 'HomeController@index');
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/login', 'SessionController@create')->name('login');
+Route::get('/logout', 'SessionController@destroy');
+Route::get('/forgot-password', 'SessionController@recovery');
+Route::post('/login', 'SessionController@store');
 
-Route::get('/marque', 'MarqueController@index');
+Route::group(['middleware' => 'auth'], function() {
+	Route::get('/marque', 'MarqueController@index');
 Route::post('/marque', 'MarqueController@store');
 
 Route::get('/modele', 'ModeleController@index');
@@ -49,11 +53,6 @@ Route::post('/registration', 'UserController@store');
 Route::get('/profile', 'UserController@profile');
 Route::post('/profile', 'UserController@setProfile');
 
-Route::get('/login', 'SessionController@create')->name('login');
-Route::get('/logout', 'SessionController@destroy');
-Route::get('/forgot-password', 'SessionController@recovery');
-Route::post('/login', 'SessionController@store');
-
 Route::get('/client', 'ClientController@index');
 Route::post('/client', 'ClientController@store');
 
@@ -62,3 +61,6 @@ Route::get('/location/statut/{id}', 'LocationController@statut');
 Route::post('/location', 'LocationController@store');
 
 Route::get('/invoice', 'InvoiceController@index');
+});
+Route::get('/home', 'HomeController@index')->name('home');
+
