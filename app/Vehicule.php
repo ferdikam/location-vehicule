@@ -15,7 +15,7 @@ class Vehicule extends Model
         'date_arrivee', 'transmission', 'carburant'
     ];
 
-    protected $dates = ['date°arrivee'];
+    protected $dates = ['date°arrivee','deleted_at'];
 
     public function modele()
     {
@@ -30,6 +30,11 @@ class Vehicule extends Model
     public function operations()
     {
         return $this->hasMany(Operation::class);
+    }
+
+    public function locations()
+    {
+        return $this->hasMany(Location::class);
     }
 
     public function setDateArriveeAttribute($date)

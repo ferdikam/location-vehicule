@@ -68,7 +68,7 @@
         </div> <!-- content -->
 
         <footer class="footer">
-            2015 © Ubold.
+            {{ date('Y') }} © La Marquise Location.
         </footer>
 
     </div>
@@ -104,8 +104,10 @@
 <script src="/assets/js/jquery.app.js"></script>
 
 <!-- Modal-Effect -->
-<script src="assets/plugins/custombox/dist/custombox.min.js"></script>
-<script src="assets/plugins/custombox/dist/legacy.min.js"></script>
+<script src="/assets/plugins/custombox/dist/custombox.min.js"></script>
+<script src="/assets/plugins/custombox/dist/legacy.min.js"></script>
+
+@include('flashy::message')
 
 </body>
 </html>

@@ -8,14 +8,22 @@ use App\Operation;
 use App\TypeOperation;
 use App\Vehicule;
 use Illuminate\Http\Request;
+use Carbon\Carbon;
 
 class OperationController extends Controller
 {
+    
+    
     public function index()
     {
-        setlocale(LC_TIME, 'French');
-        $operations = Operation::with(['vehicule', 'typeOperation', 'fournisseur'])->where('validated', 0)->latest()->get();
-        $operationsValidated = Operation::with(['vehicule', 'typeOperation', 'fournisseur'])->where('validated', 1)->latest()->get();
+        
+        $operations = Operation::with(['vehicule', 'typeOperation', 'fournisseur'])
+                        ->where('validated', 0)
+                        ->latest()->get();
+
+        $operationsValidated = Operation::with(['vehicule', 'typeOperation', 'fournisseur'])
+                                ->where('validated', 1)
+                                ->latest()->get();
 
         $vehicules = Vehicule::with(['modele', 'operations'])->latest()->get();
         $typeoperations = TypeOperation::orderBy('name')->get();
@@ -26,6 +34,7 @@ class OperationController extends Controller
 
     public function store(OperationRequest $request)
     {
+        
         Operation::create($request->all());
 
         return redirect()->back();
@@ -35,7 +44,10 @@ class OperationController extends Controller
     {
         $operation = Operation::findOrFail(request()->operation_id);
         if(request()->validated == '0')
+        {
             $operation->validated = 1;
+        }
+            
 
         $operation->save();
 
