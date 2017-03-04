@@ -105,4 +105,17 @@ class UserController extends Controller
 
         return redirect()->back();
     }
+
+    public function active($id)
+    {
+        $user = User::findOrFail($id);
+        if($user->active){
+            $user->active = 0;
+        } else{
+            $user->active = 1;
+        }
+        $user->save();
+
+        return redirect()->back();
+    }
 }

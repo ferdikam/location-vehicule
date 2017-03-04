@@ -59,7 +59,7 @@
                                 <td>{{ $user->email }}</td>
                                 <td>
 
-                                    <a href="#" class="btn btn-sm btn-inverse">{{ $user->active ? 'Désactiver' : "Activer" }}</a>
+                                    <a href="/utilisateur/active/{{ $user->id }}" class="btn btn-sm btn-inverse">{{ $user->active ? 'Désactiver' : "Activer" }}</a>
                                     <a href="#custom-edit-modal-{{ $user->id }}" class="table-action-btn" data-animation="fadein"
                                        data-plugin="custommodal" data-overlaySpeed="200" data-overlayColor="#36404a">
                                         <i class="md md-edit"></i>
