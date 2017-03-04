@@ -26,7 +26,7 @@
                 <div class="profile-info-name">
                     <img src="/assets/images/users/default-avatar.png" class="thumb-lg img-circle img-thumbnail" alt="profile-image">
                     <h4 class="m-b-5"><b>{{ $user->name }}</b></h4>
-                    <p class="text-muted"><i class="fa fa-map-marker"></i> New york, United States</p>
+                    
                 </div>
             </div>
             <!--/ meta -->
@@ -84,7 +84,7 @@
 
             <div class="card-box m-t-20">
                 <h4 class="m-t-0 header-title"><b>Mes activités</b></h4>
-                <div class="p-20">
+                <!--<div class="p-20">
                     <div class="timeline-2">
                         <div class="time-item">
                             <div class="item-info">
@@ -132,7 +132,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div>-->
             </div>
     </div>
 
