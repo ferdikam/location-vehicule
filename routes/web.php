@@ -12,6 +12,7 @@
 */
 
 Route::get('/', 'HomeController@index');
+Route::get('/events', 'HomeController@getEvents');
 
 Auth::routes();
 

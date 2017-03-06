@@ -16,6 +16,7 @@
     <link href="/assets/css/icons.css" rel="stylesheet" type="text/css" />
     <link href="/assets/css/pages.css" rel="stylesheet" type="text/css" />
     <link href="/assets/css/responsive.css" rel="stylesheet" type="text/css" />
+    @yield('styles')
 
     <!-- HTML5 Shiv and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -106,6 +107,8 @@
 <!-- Modal-Effect -->
 <script src="/assets/plugins/custombox/dist/custombox.min.js"></script>
 <script src="/assets/plugins/custombox/dist/legacy.min.js"></script>
+
+@yield('scripts')
 
 @include('flashy::message')
 
