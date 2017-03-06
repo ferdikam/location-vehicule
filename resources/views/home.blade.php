@@ -40,9 +40,14 @@
             },
             locale: 'fr',
             navLinks: true, // can click day/week names to navigate views
-            editable: true,
             eventLimit: true, // allow "more" link when too many events
-            events: '/events'
+            events: '/events',
+            eventClick: function(callEvent, jsEvent, view) {
+                if (event.url) {
+                    window.open(event.url);
+                    return false;
+                }
+            }
         });
         
     });

@@ -8,7 +8,8 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>{{ config('app.name', 'Laravel') }}</title>
-
+    
+    @yield('styles')
     <link href="/assets/plugins/custombox/dist/custombox.min.css" rel="stylesheet">
     <link href="/assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
     <link href="/assets/css/core.css" rel="stylesheet" type="text/css" />
@@ -16,7 +17,6 @@
     <link href="/assets/css/icons.css" rel="stylesheet" type="text/css" />
     <link href="/assets/css/pages.css" rel="stylesheet" type="text/css" />
     <link href="/assets/css/responsive.css" rel="stylesheet" type="text/css" />
-    @yield('styles')
 
     <!-- HTML5 Shiv and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->

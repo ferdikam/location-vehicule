@@ -37,4 +37,11 @@ class LocationController extends Controller
         Flashy::success('Location ajoutée avec succès');
         return redirect()->back();
     }
+
+    public function show($id)
+    {
+        $location = Location::findOrFail($id);
+
+        return view('location.show', compact('location'));
+    }
 }

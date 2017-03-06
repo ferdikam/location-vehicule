@@ -59,6 +59,7 @@ Route::group(['middleware' => 'auth'], function() {
 	Route::post('/client', 'ClientController@store');
 
 	Route::get('/location', 'LocationController@index');
+	Route::get('/location/{id}', 'LocationController@show');
 	Route::get('/location/statut/{id}', 'LocationController@statut');
 	Route::post('/location', 'LocationController@store');
 

@@ -31,12 +31,14 @@ class HomeController extends Controller
     public function getEvents()
     {
         $locations = Location::with('vehicule',  'client')->get();
-        
+    
         $locationEvents = $locations->map(function($item){
             return [
-                'title' => $item['vehicule']['immatriculation'],
+                'title' => "{$item['vehicule']['modele']['marque']['name']} {$item['vehicule']['modele']['name']} {$item['vehicule']['immatriculation']}",
                 'start' => $item['date_start']->toDateString(),
-                'end' => $item['date_end']->toDateString()
+                'end' => $item['date_end']->toDateString(),
+                'url' => "/location/{$item['id']}",
+                'className' => 'bg-primary'
             ];
         });
 
