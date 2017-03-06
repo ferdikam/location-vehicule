@@ -20,6 +20,7 @@ class CreateModelesTable extends Migration
             $table->foreign('marque_id')->references('id')->on('marques')->onDelete('cascade');
 
             $table->string('name');
+            $table->softDeletes();
             $table->timestamps();
         });
     }

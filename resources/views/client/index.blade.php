@@ -6,7 +6,7 @@
             <h4 class="page-title">Client</h4>
             <ol class="breadcrumb">
                 <li>
-                    <a href="#">Gestion des clients</a>
+                    <a href="/client">Gestion des clients</a>
                 </li>
                 <li class="active">
                     Client
@@ -53,23 +53,23 @@
                         <tbody>
                         @foreach($clients as $client)
                             <tr>
+                                <td><a href="">{{ $client->name }}</a></td>
                                 <td>
-                                    <a href="#custom-show-modal"data-animation="fadein" data-plugin="custommodal"
-                                       data-overlaySpeed="200" data-overlayColor="#36404a">{{ $client->name }}</a>
+                                    <a href="#custom-modal-{{ $client->id }}" class="table-action-btn" data-animation="fadein" data-plugin="custommodal"
+                                       data-overlaySpeed="200" data-overlayColor="#36404a"><i class="md md-edit"></i></a>
 
-                                    <div id="custom-show-modal" class="modal-demo">
+                                    <div id="custom-modal-{{ $client->id }}" class="modal-demo">
                                         <button type="button" class="close" onclick="Custombox.close();">
                                             <span>&times;</span><span class="sr-only">Fermer</span>
                                         </button>
-                                        <h4 class="custom-modal-title">Enregistrer un client</h4>
-                                        <div class="custom-modal-text">
-                                            <img src="{{ asset('storage/' . $client->file_cni) }}">
+                                        <h4 class="custom-modal-title">Modifier un client</h4>
+                                        <div class="custom-modal-text text-left">
+                                            <form method="post" action="/edit/{{ $client->id }}/client" enctype="multipart/form-data">
+                                                {{ method_field('PATCH') }}
+                                                @include('client.form', ['btnSubmit' => 'Modifier', 'client' => $client])
+                                            </form>
                                         </div>
                                     </div>
-
-                                </td>
-                                <td>
-                                    <a href="#" class="table-action-btn"><i class="md md-edit"></i></a>
                                     <a href="#" class="table-action-btn"><i class="md md-close"></i></a>
                                 </td>
                             </tr>

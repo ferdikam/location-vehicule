@@ -4,9 +4,11 @@ namespace App;
 
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Location extends Model
 {
+    use SoftDeletes;
     protected $fillable = [
         'clieant_id', 'vehicule_id', 'date_start', 'date_end', 'tokens', 'status'
     ];

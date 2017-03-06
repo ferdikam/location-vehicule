@@ -26,6 +26,7 @@ class CreateInvoicesTable extends Migration
             $table->decimal('discount')->nullable();
             $table->decimal('total');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

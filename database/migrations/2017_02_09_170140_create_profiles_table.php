@@ -19,6 +19,7 @@ class CreateProfilesTable extends Migration
             $table->string('avatar')->default('default.jpg');
             $table->string('phone1', 12);
             $table->string('phone2', 12)->nullable();
+            $table->softDeletes();
             $table->timestamps();
         });
     }

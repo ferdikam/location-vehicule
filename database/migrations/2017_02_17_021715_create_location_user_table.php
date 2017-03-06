@@ -21,6 +21,7 @@ class CreateLocationUserTable extends Migration
             $table->foreign('location_id')->references('id')->on('locations')->onDelete('cascade');
 
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

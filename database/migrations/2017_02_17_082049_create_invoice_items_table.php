@@ -22,6 +22,7 @@ class CreateInvoiceItemsTable extends Migration
             $table->string('name');
             $table->string('price');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

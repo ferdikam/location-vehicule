@@ -12,7 +12,20 @@
         <div class="col-md-3">
             <div class="card-box">
                 <h2 class="text-dark header-title m-t-0">Bienvenue - {{ Auth::user()->name }}</h2>
-
+            </div>
+            <div class="card-box">
+                <h4 class="m-t-0 m-b-20 header-title"><b>Locations à payer</b></h4>
+                <div class="nicescroll mx-box">
+                    <ul class="list-unstyled transaction-list m-r-5">
+                        @foreach($locationRelances as $locationRelance)
+                        <li>
+                            <span class="tran-text">{{ $locationRelance->client->name }}</span>
+                            <span class="pull-right text-muted">{{ $locationRelance->created_at->toDateString() }}</span>
+                            <span class="clearfix"></span>
+                        </li>
+                        @endforeach
+                    </ul>
+                </div>
             </div>
         </div>
         <div class="col-md-9">
@@ -41,7 +54,7 @@
             locale: 'fr',
             navLinks: true, // can click day/week names to navigate views
             eventLimit: true, // allow "more" link when too many events
-            events: '/events',
+            eventSources: ['/events', '/operationEvents'],
             eventClick: function(callEvent, jsEvent, view) {
                 if (event.url) {
                     window.open(event.url);

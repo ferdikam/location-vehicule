@@ -13,6 +13,11 @@ use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
+    public function __construct()
+    {
+        
+    }
+
     public function index()
     {
         $users = User::latest()->get();
@@ -35,7 +40,6 @@ class UserController extends Controller
     public function confirm($id,UsersLoginToken $token)
     {
         $user = $token->user;
-
 
         if($token->isExpired())
         {

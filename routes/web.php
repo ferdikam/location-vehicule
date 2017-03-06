@@ -12,7 +12,14 @@
 */
 
 Route::get('/', 'HomeController@index');
+
 Route::get('/events', 'HomeController@getEvents');
+
+Route::get('/operationEvents', 'HomeController@getOperations');
+
+Route::get('/utilisateur/confirm/{id}/{token}', 'UserController@confirm');
+Route::get('/utilisateur/envoie-lien', 'UserController@send');
+Route::post('/utilisateur/envoie-lien', 'UserController@sendLink');
 
 Auth::routes();
 
@@ -47,9 +54,8 @@ Route::group(['middleware' => 'auth'], function() {
 	Route::post('/fournisseur', 'FournisseurController@store');
 
 	Route::get('/utilisateur', 'UserController@index');
-	Route::get('/utilisateur/confirm/{id}/{token}', 'UserController@confirm');
-	Route::get('/utilisateur/envoie-lien', 'UserController@send');
-	Route::post('/utilisateur/envoie-lien', 'UserController@sendLink');
+	
+	
 	Route::get('/utilisateur/active/{id}', 'UserController@active');
 	Route::post('/registration', 'UserController@store');
 	Route::get('/profile', 'UserController@profile');
@@ -57,6 +63,7 @@ Route::group(['middleware' => 'auth'], function() {
 
 	Route::get('/client', 'ClientController@index');
 	Route::post('/client', 'ClientController@store');
+	Route::patch('/edit/{id}/client', 'ClientController@update');
 
 	Route::get('/location', 'LocationController@index');
 	Route::get('/location/{id}', 'LocationController@show');

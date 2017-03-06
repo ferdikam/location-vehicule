@@ -43,9 +43,12 @@ class ClientStoreForm extends FormRequest
         ];
     }
 
-    public function persist()
+    public function persist($id = null)
     {
-        $client = new Client;
+        if(!is_null($id))
+            $client = Client::findOrFail($id);
+        else
+            $client = new Client;
 
         $name = $this->name;
 

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Location;
+use App\Operation;
 use Carbon\Carbon;
 
 class HomeController extends Controller
@@ -24,8 +25,10 @@ class HomeController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {   
-        return view('home');
+    {
+        $locationRelances = Location::where('status', 'pending')->get();
+
+        return view('home', compact('locationRelances'));
     }
 
     public function getEvents()
@@ -43,5 +46,21 @@ class HomeController extends Controller
         });
 
         return $locationEvents;
+    }
+
+    public function getOperations()
+    {
+
+        $operations = Operation::with(['vehicule', 'typeOperation', 'fournisseur'])->get();
+        $operationEvents = $operations->map(function($item){
+            return [
+                'title' => "Assurance - {$item['vehicule']['modele']['marque']['name']} {$item['vehicule']['modele']['name']} {$item['vehicule']['immatriculation']}",
+                'start' => $item['date_next']->toDateString(),
+                'url' => "/operation/{$item['id']}",
+                'className' => 'bg-purple'
+            ];
+        });
+
+        return $operationEvents;
     }
 }

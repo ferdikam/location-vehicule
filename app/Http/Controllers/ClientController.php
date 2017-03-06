@@ -23,4 +23,12 @@ class ClientController extends Controller
         Flashy::success('Client ajouté avec succès');
         return back();
     }
-}
+
+    public function update($id, ClientStoreForm $request)
+    {
+        $request->persist($id);
+
+        Flashy::success('Client modifié avec succès');
+        return back();
+    }
+} 

@@ -6,6 +6,7 @@ use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
+use MercurySeries\Flashy\Flashy;
 
 class SessionController extends Controller
 {
@@ -24,14 +25,23 @@ class SessionController extends Controller
     public function store()
     {
         $user = User::where('email', request(['email']))->first();
+
+        if(!$user){
+            Flashy::error('Aucun compte ne correspond à cet utilisateur. Veuillez contacter l\'administrateur');
+            return back();
+        }
+
         if (!$user->active){
+            Flashy::error('Votre compte n\'est pas activé');
             return back();
         }
 
         if(!auth()->attempt(request(['email', 'password']))){
+            Flashy::error('Votre adresse électronique ou votre mot de passe est incorrecte');
             return back();
         }
 
+        Flashy::success('Bienvenue');
         return redirect()->home();
     }
 
