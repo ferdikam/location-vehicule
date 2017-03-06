@@ -8,10 +8,11 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Zizaco\Entrust\Traits\EntrustUserTrait;
+use Spatie\Activitylog\Traits\LogsActivity;
 
 class User extends Authenticatable
 {
-    use Notifiable, EntrustUserTrait, SoftDeletes;
+    use Notifiable, EntrustUserTrait, SoftDeletes, LogsActivity;
 
     /**
      * The attributes that are mass assignable.

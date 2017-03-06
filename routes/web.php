@@ -55,7 +55,6 @@ Route::group(['middleware' => 'auth'], function() {
 
 	Route::get('/utilisateur', 'UserController@index');
 	
-	
 	Route::get('/utilisateur/active/{id}', 'UserController@active');
 	Route::post('/registration', 'UserController@store');
 	Route::get('/profile', 'UserController@profile');

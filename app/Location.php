@@ -5,10 +5,11 @@ namespace App;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Spatie\Activitylog\Traits\LogsActivity;
 
 class Location extends Model
 {
-    use SoftDeletes;
+    use SoftDeletes,LogsActivity;
     protected $fillable = [
         'clieant_id', 'vehicule_id', 'date_start', 'date_end', 'tokens', 'status'
     ];

@@ -5,10 +5,11 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Carbon\Carbon;
+use Spatie\Activitylog\Traits\LogsActivity;
 
 class Operation extends Model
 {
-    use SoftDeletes;
+    use SoftDeletes,LogsActivity;
 
     protected $dates= ['date', 'date_next'];
 
