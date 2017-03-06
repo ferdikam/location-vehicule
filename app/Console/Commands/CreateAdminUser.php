@@ -46,6 +46,7 @@ class CreateAdminUser extends Command
         $user->name = $name;
         $user->email = $email;
         $user->password= bcrypt($password);
+        $user->active = 1;
 
         $user->save();
     }
