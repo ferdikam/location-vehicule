@@ -179,6 +179,7 @@ return [
         MercurySeries\Flashy\FlashyServiceProvider::class,
         Zizaco\Entrust\EntrustServiceProvider::class,
         Spatie\Activitylog\ActivitylogServiceProvider::class,
+        Bugsnag\BugsnagLaravel\BugsnagServiceProvider::class,
 
     ],
 
@@ -230,6 +231,7 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
         'Flashy' => MercurySeries\Flashy\Flashy::class,
         'Entrust'   => Zizaco\Entrust\EntrustFacade::class,
+        'Bugsnag' => Bugsnag\BugsnagLaravel\Facades\Bugsnag::class,
     ],
 
 ];

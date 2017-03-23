@@ -50,6 +50,7 @@ class UserRegistered extends Notification
                     ->line('Voici votre mot de passe de connexion.')
                     ->line('Mot de passe : ' . $this->password)
                     ->line('Veuillez confirmer votre inscription en clickant sur le bonton ci-dessous afin de pouvoir utiliser l\'application ')
+                    ->line('Ce lien de confirmation expirera dans 1 Heure')
                     ->action('Confirmation', url("/utilisateur/confirm/{$notifiable->id}/{$notifiable->token->token}"));
     }
 
