@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class UsersLoginToken extends Model
 {
-    const TOKEN_EXPIRY = 30;
+    const TOKEN_EXPIRY = 3600;
     protected $table = 'users_login_tokens';
 
     protected $fillable = ['user_id', 'token'];
