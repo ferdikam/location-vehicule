@@ -3,7 +3,7 @@
     <div class="row">
         <div class="col-md-6">
             <div class="form-group">
-                <label for="client_id">Modèle</label>
+                <label for="client_id">Client</label>
                 <select class="form-control" id="client_id" name="client_id" required>
                     @foreach($clients as $client)
                         <option value="{{ $client->id }}">{{ $client->name }}</option>
