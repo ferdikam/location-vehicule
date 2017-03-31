@@ -73,7 +73,7 @@
         <div class="text-center text-muted">
             <strong>Aucun modèle de véhicule enregistré</strong><br>
 
-            <a href="#custom-modal" class="pull-right btn btn-default btn-sm waves-effect waves-light" data-animation="fadein" data-plugin="custommodal"
+            <a href="#custom-modal" class="btn btn-default btn-sm waves-effect waves-light" data-animation="fadein" data-plugin="custommodal"
                data-overlaySpeed="200" data-overlayColor="#36404a">Ajouter</a>
             <div id="custom-modal" class="modal-demo">
                 <button type="button" class="close" onclick="Custombox.close();">
